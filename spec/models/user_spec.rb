@@ -12,7 +12,7 @@ require 'rails_helper'
         # password_confirmation =! "" to varid?
         #みて
         #修正＆解答
-        expect(@user).to be_valid?
+        expect(@user).to be_valid
       end
   
       it 'nameが空では登録できないこと' do
@@ -24,7 +24,7 @@ require 'rails_helper'
         # expect(name.errors.full_messages).to includes("name can't be blank")
         @user.name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Name cant't be blank")
+        expect(@user.errors.full_messages).to include("Name can't be blank")
       end
     it 'emailが空では登録できないこと' do
       #見ないで
@@ -35,7 +35,7 @@ require 'rails_helper'
       # expect(email.errors.full_messages).to includes("Email can't be blank")
       @user.email = ''
       @user.valid?
-      expect(@user.errors.full_messages).to include("Email cant't be blank")
+      expect(@user.errors.full_messages).to include("Email can't be blank")
     end
     
     it 'passwordが空では登録できないこと' do
@@ -47,7 +47,7 @@ require 'rails_helper'
       # expect(email.erroers.full_messages).to includes("password can't be blank")
       @user.password = ''
       @user.valid?
-      expect(@user.errors.full_messages).to include("Password cant't be blank")
+      expect(@user.errors.full_messages).to include("Password can't be blank")
       end
 
       it 'passwordが6文字以上であれば登録できること' do
@@ -58,9 +58,9 @@ require 'rails_helper'
         # password = "aaaaaaa"
         # password.varid?
         # expect(password.errors.full_messages).to includes("Password is too long(maximum is 6charactors)")
-        @user.passworf = '123456'
+        @user.password = '123456'
         @user.password_confirmation = '123456'
-        expect(@user).to be_valid?
+        expect(@user).to be_valid
       end
   
       it 'passwordが5文字以下であれば登録できないこと' do
@@ -76,7 +76,7 @@ require 'rails_helper'
         @user.password = '12345'
         @user.password_confirmation = '12345'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password is too short(minimum is 6charactors)')        
+        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')        
         end
   
       it 'passwordとpassword_confirmationが不一致では登録できないこと' do
@@ -85,10 +85,10 @@ require 'rails_helper'
         #  password.save to be varid?
         #  password_confirmation.save to be varid?
         #正しくは
-        @user.password ='123456'
+        @user.password = '123456'
         @user.password_confirmation = '1234567'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmation does't match Password")
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
 
 
