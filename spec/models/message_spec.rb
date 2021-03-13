@@ -9,7 +9,7 @@ RSpec.describe Message, type: :model do
     it 'contentとimageが存在していれば保存できること' do
        #見て
       #  expect(messages, images).to be valid?
-      expect(@messageI).to be_valid
+      expect(@message).to be_valid
     end
 
     it 'contentが空でも保存できること' do
@@ -18,7 +18,7 @@ RSpec.describe Message, type: :model do
       #  expect(content).to be valid?
       #修正
       @message.content = ''
-      expect(@message).to be valid
+      expect(@message).to be_valid
     end
 
     it 'imageが空でも保存できること' do
@@ -32,7 +32,7 @@ RSpec.describe Message, type: :model do
       @message.image = nil
       @message.valid?
       # image.be valid?
-      expect(@messge.errors.full_messages).to include("Content can't be blank")
+      expect(@message.errors.full_messages).to include("Content can't be blank")
 
     end
 

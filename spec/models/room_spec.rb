@@ -9,9 +9,9 @@ require 'rails_helper'
         #見ないで
         #  name :presence?
         #見て⇨DBにある（be_valid?)
-         expect(@room).to be_valid?
+         expect(@room).to be_valid
       end
-  
+      
       it 'nameが空では登録できないこと' do
         #いくつか見てから書いて
         @room.name = ''
